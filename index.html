@@ -19,6 +19,11 @@
     <section class="weather-form-card">
       <form id="weather-form" class="weather-form" novalidate>
         <label class="field-group">
+          <span>OpenWeatherMap API key</span>
+          <input id="api-key-input" type="password" name="apiKey" placeholder="Enter your API key" autocomplete="off" required />
+        </label>
+
+        <label class="field-group">
           <span>City</span>
           <input id="city-input" type="text" name="city" placeholder="Sydney" autocomplete="off" required />
         </label>

@@ -12,16 +12,14 @@ A minimalist static weather app built with HTML, CSS, and vanilla JavaScript.
 
 ## Setup
 
-1. Add your OpenWeatherMap API key in `script.js`:
-   ```js
-   const API_KEY = "YOUR_API_KEY_HERE";
-   ```
-2. Open `index.html` in a browser or deploy the folder to GitHub Pages.
+1. Open `index.html` in a browser or deploy the folder to GitHub Pages.
+2. Enter your OpenWeatherMap API key in the app, along with the city and country code.
 
 ## API key guidance
 
-Because GitHub Pages is a static host, the API key will be visible in the client-side code.
-Use a free-tier key and apply domain restrictions if possible. Do not commit a production key to the repository.
+The app prompts for the API key at runtime so it is not hardcoded in the source files.
+Because GitHub Pages is static, the key is still visible in the browser session, so use a free-tier key and apply domain restrictions if possible.
+Do not commit a production key to the repository.
 
 ## Deploy to GitHub Pages
 

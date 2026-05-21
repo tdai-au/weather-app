@@ -1,7 +1,7 @@
-const API_KEY = "<YOUR_API_KEY_HERE>";
 const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
 
 const form = document.getElementById("weather-form");
+const apiKeyInput = document.getElementById("api-key-input");
 const cityInput = document.getElementById("city-input");
 const countryInput = document.getElementById("country-input");
 const messageBox = document.getElementById("message");
@@ -39,9 +39,9 @@ function showResult(data) {
   resultCard.classList.remove("hidden");
 }
 
-async function fetchWeather(city, country) {
+async function fetchWeather(city, country, apiKey) {
   const query = `${encodeURIComponent(city)},${encodeURIComponent(country)}`;
-  const url = `${BASE_URL}?q=${query}&units=metric&appid=${API_KEY}`;
+  const url = `${BASE_URL}?q=${query}&units=metric&appid=${encodeURIComponent(apiKey)}`;
 
   const response = await fetch(url);
   if (!response.ok) {
@@ -58,23 +58,19 @@ form.addEventListener("submit", async (event) => {
   clearMessage();
   resultCard.classList.add("hidden");
 
+  const apiKey = apiKeyInput.value.trim();
   const city = cityInput.value.trim();
   const country = countryInput.value.trim();
 
-  if (!city || !country) {
-    setMessage("Please enter both city and country.");
-    return;
-  }
-
-  if (API_KEY === "<YOUR_API_KEY_HERE>" || !API_KEY) {
-    setMessage("Add your OpenWeatherMap API key in script.js before using WEATHERLY.");
+  if (!apiKey || !city || !country) {
+    setMessage("Please enter your API key, city, and country.");
     return;
   }
 
   setMessage("Looking up weather…", "success");
 
   try {
-    const weatherData = await fetchWeather(city, country);
+    const weatherData = await fetchWeather(city, country, apiKey);
     showResult(weatherData);
     clearMessage();
   } catch (error) {
