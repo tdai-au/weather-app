@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WEATHERLY</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">WEATHERLY</p>
+        <h1>Current weather anywhere</h1>
+        <p class="subtitle">Search by city and country code to get temperature, conditions, humidity, and wind speed.</p>
+      </div>
+    </section>
+
+    <section class="weather-form-card">
+      <form id="weather-form" class="weather-form" novalidate>
+        <label class="field-group">
+          <span>City</span>
+          <input id="city-input" type="text" name="city" placeholder="Sydney" autocomplete="off" required />
+        </label>
+
+        <label class="field-group">
+          <span>Country</span>
+          <input id="country-input" type="text" name="country" placeholder="AU" autocomplete="off" required />
+        </label>
+
+        <button type="submit">Get Weather</button>
+      </form>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </section>
+
+    <section id="result-card" class="weather-result hidden" aria-live="polite">
+      <div class="result-header">
+        <div>
+          <p class="location" id="location-name"></p>
+          <p class="condition" id="weather-condition"></p>
+        </div>
+        <img id="weather-icon" src="" alt="" width="80" height="80" />
+      </div>
+
+      <div class="result-details">
+        <div class="detail-item">
+          <span>Temperature</span>
+          <strong id="temperature-value"></strong>
+        </div>
+        <div class="detail-item">
+          <span>Humidity</span>
+          <strong id="humidity-value"></strong>
+        </div>
+        <div class="detail-item">
+          <span>Wind speed</span>
+          <strong id="wind-value"></strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
